@@ -11,7 +11,8 @@ class MyApp extends StatelessWidget {
       client: ValueNotifier(
         GraphQLClient(
           cache: GraphQLCache(store: HiveStore()),
-          link: HttpLink('https://swapi-graphql.netlify.app/'),
+          link: HttpLink(
+              'https://swapi-graphql.netlify.app/.netlify/functions/index'),
         ),
       ),
       child: MaterialApp(
