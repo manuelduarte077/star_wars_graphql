@@ -129,55 +129,43 @@ const documentNodeQueryAllFilms = DocumentNode(definitions: [
             directives: [],
             selectionSet: SelectionSetNode(selections: [
               FieldNode(
-                  name: NameNode(value: 'films'),
+                  name: NameNode(value: 'edges'),
                   alias: null,
                   arguments: [],
                   directives: [],
                   selectionSet: SelectionSetNode(selections: [
                     FieldNode(
-                        name: NameNode(value: 'title'),
-                        alias: null,
-                        arguments: [],
-                        directives: [],
-                        selectionSet: null),
-                    FieldNode(
-                        name: NameNode(value: 'director'),
-                        alias: null,
-                        arguments: [],
-                        directives: [],
-                        selectionSet: null),
-                    FieldNode(
-                        name: NameNode(value: 'releaseDate'),
-                        alias: null,
-                        arguments: [],
-                        directives: [],
-                        selectionSet: null),
-                    FieldNode(
-                        name: NameNode(value: 'speciesConnection'),
+                        name: NameNode(value: 'node'),
                         alias: null,
                         arguments: [],
                         directives: [],
                         selectionSet: SelectionSetNode(selections: [
                           FieldNode(
-                              name: NameNode(value: 'species'),
+                              name: NameNode(value: 'title'),
+                              alias: null,
+                              arguments: [],
+                              directives: [],
+                              selectionSet: null),
+                          FieldNode(
+                              name: NameNode(value: 'director'),
+                              alias: null,
+                              arguments: [],
+                              directives: [],
+                              selectionSet: null),
+                          FieldNode(
+                              name: NameNode(value: 'releaseDate'),
+                              alias: null,
+                              arguments: [],
+                              directives: [],
+                              selectionSet: null),
+                          FieldNode(
+                              name: NameNode(value: 'speciesConnection'),
                               alias: null,
                               arguments: [],
                               directives: [],
                               selectionSet: SelectionSetNode(selections: [
                                 FieldNode(
-                                    name: NameNode(value: 'name'),
-                                    alias: null,
-                                    arguments: [],
-                                    directives: [],
-                                    selectionSet: null),
-                                FieldNode(
-                                    name: NameNode(value: 'classification'),
-                                    alias: null,
-                                    arguments: [],
-                                    directives: [],
-                                    selectionSet: null),
-                                FieldNode(
-                                    name: NameNode(value: 'homeworld'),
+                                    name: NameNode(value: 'species'),
                                     alias: null,
                                     arguments: [],
                                     directives: [],
@@ -188,6 +176,34 @@ const documentNodeQueryAllFilms = DocumentNode(definitions: [
                                           arguments: [],
                                           directives: [],
                                           selectionSet: null),
+                                      FieldNode(
+                                          name:
+                                              NameNode(value: 'classification'),
+                                          alias: null,
+                                          arguments: [],
+                                          directives: [],
+                                          selectionSet: null),
+                                      FieldNode(
+                                          name: NameNode(value: 'homeworld'),
+                                          alias: null,
+                                          arguments: [],
+                                          directives: [],
+                                          selectionSet:
+                                              SelectionSetNode(selections: [
+                                            FieldNode(
+                                                name: NameNode(value: 'name'),
+                                                alias: null,
+                                                arguments: [],
+                                                directives: [],
+                                                selectionSet: null),
+                                            FieldNode(
+                                                name: NameNode(
+                                                    value: '__typename'),
+                                                alias: null,
+                                                arguments: [],
+                                                directives: [],
+                                                selectionSet: null)
+                                          ])),
                                       FieldNode(
                                           name: NameNode(value: '__typename'),
                                           alias: null,
@@ -203,12 +219,24 @@ const documentNodeQueryAllFilms = DocumentNode(definitions: [
                                     selectionSet: null)
                               ])),
                           FieldNode(
+                              name: NameNode(value: 'producers'),
+                              alias: null,
+                              arguments: [],
+                              directives: [],
+                              selectionSet: null),
+                          FieldNode(
                               name: NameNode(value: '__typename'),
                               alias: null,
                               arguments: [],
                               directives: [],
                               selectionSet: null)
                         ])),
+                    FieldNode(
+                        name: NameNode(value: 'cursor'),
+                        alias: null,
+                        arguments: [],
+                        directives: [],
+                        selectionSet: null),
                     FieldNode(
                         name: NameNode(value: '__typename'),
                         alias: null,
@@ -331,29 +359,29 @@ class Query$AllFilms$Widget extends graphql_flutter.Query<Query$AllFilms> {
 }
 
 class Query$AllFilms$allFilms {
-  Query$AllFilms$allFilms({this.films, required this.$__typename});
+  Query$AllFilms$allFilms({this.edges, required this.$__typename});
 
   factory Query$AllFilms$allFilms.fromJson(Map<String, dynamic> json) {
-    final l$films = json['films'];
+    final l$edges = json['edges'];
     final l$$__typename = json['__typename'];
     return Query$AllFilms$allFilms(
-        films: (l$films as List<dynamic>?)
+        edges: (l$edges as List<dynamic>?)
             ?.map((e) => e == null
                 ? null
-                : Query$AllFilms$allFilms$films.fromJson(
+                : Query$AllFilms$allFilms$edges.fromJson(
                     (e as Map<String, dynamic>)))
             .toList(),
         $__typename: (l$$__typename as String));
   }
 
-  final List<Query$AllFilms$allFilms$films?>? films;
+  final List<Query$AllFilms$allFilms$edges?>? edges;
 
   final String $__typename;
 
   Map<String, dynamic> toJson() {
     final _resultData = <String, dynamic>{};
-    final l$films = films;
-    _resultData['films'] = l$films?.map((e) => e?.toJson()).toList();
+    final l$edges = edges;
+    _resultData['edges'] = l$edges?.map((e) => e?.toJson()).toList();
     final l$$__typename = $__typename;
     _resultData['__typename'] = l$$__typename;
     return _resultData;
@@ -361,10 +389,10 @@ class Query$AllFilms$allFilms {
 
   @override
   int get hashCode {
-    final l$films = films;
+    final l$edges = edges;
     final l$$__typename = $__typename;
     return Object.hashAll([
-      l$films == null ? null : Object.hashAll(l$films.map((v) => v)),
+      l$edges == null ? null : Object.hashAll(l$edges.map((v) => v)),
       l$$__typename
     ]);
   }
@@ -378,20 +406,20 @@ class Query$AllFilms$allFilms {
         runtimeType != other.runtimeType) {
       return false;
     }
-    final l$films = films;
-    final lOther$films = other.films;
-    if (l$films != null && lOther$films != null) {
-      if (l$films.length != lOther$films.length) {
+    final l$edges = edges;
+    final lOther$edges = other.edges;
+    if (l$edges != null && lOther$edges != null) {
+      if (l$edges.length != lOther$edges.length) {
         return false;
       }
-      for (int i = 0; i < l$films.length; i++) {
-        final l$films$entry = l$films[i];
-        final lOther$films$entry = lOther$films[i];
-        if (l$films$entry != lOther$films$entry) {
+      for (int i = 0; i < l$edges.length; i++) {
+        final l$edges$entry = l$edges[i];
+        final lOther$edges$entry = lOther$edges[i];
+        if (l$edges$entry != lOther$edges$entry) {
           return false;
         }
       }
-    } else if (l$films != lOther$films) {
+    } else if (l$edges != lOther$edges) {
       return false;
     }
     final l$$__typename = $__typename;
@@ -416,12 +444,12 @@ abstract class CopyWith$Query$AllFilms$allFilms<TRes> {
   factory CopyWith$Query$AllFilms$allFilms.stub(TRes res) =
       _CopyWithStubImpl$Query$AllFilms$allFilms;
 
-  TRes call({List<Query$AllFilms$allFilms$films?>? films, String? $__typename});
-  TRes films(
-      Iterable<Query$AllFilms$allFilms$films?>? Function(
+  TRes call({List<Query$AllFilms$allFilms$edges?>? edges, String? $__typename});
+  TRes edges(
+      Iterable<Query$AllFilms$allFilms$edges?>? Function(
               Iterable<
-                  CopyWith$Query$AllFilms$allFilms$films<
-                      Query$AllFilms$allFilms$films>?>?)
+                  CopyWith$Query$AllFilms$allFilms$edges<
+                      Query$AllFilms$allFilms$edges>?>?)
           _fn);
 }
 
@@ -435,24 +463,24 @@ class _CopyWithImpl$Query$AllFilms$allFilms<TRes>
 
   static const _undefined = {};
 
-  TRes call({Object? films = _undefined, Object? $__typename = _undefined}) =>
+  TRes call({Object? edges = _undefined, Object? $__typename = _undefined}) =>
       _then(Query$AllFilms$allFilms(
-          films: films == _undefined
-              ? _instance.films
-              : (films as List<Query$AllFilms$allFilms$films?>?),
+          edges: edges == _undefined
+              ? _instance.edges
+              : (edges as List<Query$AllFilms$allFilms$edges?>?),
           $__typename: $__typename == _undefined || $__typename == null
               ? _instance.$__typename
               : ($__typename as String)));
-  TRes films(
-          Iterable<Query$AllFilms$allFilms$films?>? Function(
+  TRes edges(
+          Iterable<Query$AllFilms$allFilms$edges?>? Function(
                   Iterable<
-                      CopyWith$Query$AllFilms$allFilms$films<
-                          Query$AllFilms$allFilms$films>?>?)
+                      CopyWith$Query$AllFilms$allFilms$edges<
+                          Query$AllFilms$allFilms$edges>?>?)
               _fn) =>
       call(
-          films: _fn(_instance.films?.map((e) => e == null
+          edges: _fn(_instance.edges?.map((e) => e == null
                   ? null
-                  : CopyWith$Query$AllFilms$allFilms$films(e, (i) => i)))
+                  : CopyWith$Query$AllFilms$allFilms$edges(e, (i) => i)))
               ?.toList());
 }
 
@@ -462,33 +490,179 @@ class _CopyWithStubImpl$Query$AllFilms$allFilms<TRes>
 
   TRes _res;
 
-  call({List<Query$AllFilms$allFilms$films?>? films, String? $__typename}) =>
+  call({List<Query$AllFilms$allFilms$edges?>? edges, String? $__typename}) =>
       _res;
-  films(_fn) => _res;
+  edges(_fn) => _res;
 }
 
-class Query$AllFilms$allFilms$films {
-  Query$AllFilms$allFilms$films(
+class Query$AllFilms$allFilms$edges {
+  Query$AllFilms$allFilms$edges(
+      {this.node, required this.cursor, required this.$__typename});
+
+  factory Query$AllFilms$allFilms$edges.fromJson(Map<String, dynamic> json) {
+    final l$node = json['node'];
+    final l$cursor = json['cursor'];
+    final l$$__typename = json['__typename'];
+    return Query$AllFilms$allFilms$edges(
+        node: l$node == null
+            ? null
+            : Query$AllFilms$allFilms$edges$node.fromJson(
+                (l$node as Map<String, dynamic>)),
+        cursor: (l$cursor as String),
+        $__typename: (l$$__typename as String));
+  }
+
+  final Query$AllFilms$allFilms$edges$node? node;
+
+  final String cursor;
+
+  final String $__typename;
+
+  Map<String, dynamic> toJson() {
+    final _resultData = <String, dynamic>{};
+    final l$node = node;
+    _resultData['node'] = l$node?.toJson();
+    final l$cursor = cursor;
+    _resultData['cursor'] = l$cursor;
+    final l$$__typename = $__typename;
+    _resultData['__typename'] = l$$__typename;
+    return _resultData;
+  }
+
+  @override
+  int get hashCode {
+    final l$node = node;
+    final l$cursor = cursor;
+    final l$$__typename = $__typename;
+    return Object.hashAll([l$node, l$cursor, l$$__typename]);
+  }
+
+  @override
+  bool operator ==(Object other) {
+    if (identical(this, other)) {
+      return true;
+    }
+    if (!(other is Query$AllFilms$allFilms$edges) ||
+        runtimeType != other.runtimeType) {
+      return false;
+    }
+    final l$node = node;
+    final lOther$node = other.node;
+    if (l$node != lOther$node) {
+      return false;
+    }
+    final l$cursor = cursor;
+    final lOther$cursor = other.cursor;
+    if (l$cursor != lOther$cursor) {
+      return false;
+    }
+    final l$$__typename = $__typename;
+    final lOther$$__typename = other.$__typename;
+    if (l$$__typename != lOther$$__typename) {
+      return false;
+    }
+    return true;
+  }
+}
+
+extension UtilityExtension$Query$AllFilms$allFilms$edges
+    on Query$AllFilms$allFilms$edges {
+  CopyWith$Query$AllFilms$allFilms$edges<Query$AllFilms$allFilms$edges>
+      get copyWith => CopyWith$Query$AllFilms$allFilms$edges(this, (i) => i);
+}
+
+abstract class CopyWith$Query$AllFilms$allFilms$edges<TRes> {
+  factory CopyWith$Query$AllFilms$allFilms$edges(
+          Query$AllFilms$allFilms$edges instance,
+          TRes Function(Query$AllFilms$allFilms$edges) then) =
+      _CopyWithImpl$Query$AllFilms$allFilms$edges;
+
+  factory CopyWith$Query$AllFilms$allFilms$edges.stub(TRes res) =
+      _CopyWithStubImpl$Query$AllFilms$allFilms$edges;
+
+  TRes call(
+      {Query$AllFilms$allFilms$edges$node? node,
+      String? cursor,
+      String? $__typename});
+  CopyWith$Query$AllFilms$allFilms$edges$node<TRes> get node;
+}
+
+class _CopyWithImpl$Query$AllFilms$allFilms$edges<TRes>
+    implements CopyWith$Query$AllFilms$allFilms$edges<TRes> {
+  _CopyWithImpl$Query$AllFilms$allFilms$edges(this._instance, this._then);
+
+  final Query$AllFilms$allFilms$edges _instance;
+
+  final TRes Function(Query$AllFilms$allFilms$edges) _then;
+
+  static const _undefined = {};
+
+  TRes call(
+          {Object? node = _undefined,
+          Object? cursor = _undefined,
+          Object? $__typename = _undefined}) =>
+      _then(Query$AllFilms$allFilms$edges(
+          node: node == _undefined
+              ? _instance.node
+              : (node as Query$AllFilms$allFilms$edges$node?),
+          cursor: cursor == _undefined || cursor == null
+              ? _instance.cursor
+              : (cursor as String),
+          $__typename: $__typename == _undefined || $__typename == null
+              ? _instance.$__typename
+              : ($__typename as String)));
+  CopyWith$Query$AllFilms$allFilms$edges$node<TRes> get node {
+    final local$node = _instance.node;
+    return local$node == null
+        ? CopyWith$Query$AllFilms$allFilms$edges$node.stub(_then(_instance))
+        : CopyWith$Query$AllFilms$allFilms$edges$node(
+            local$node, (e) => call(node: e));
+  }
+}
+
+class _CopyWithStubImpl$Query$AllFilms$allFilms$edges<TRes>
+    implements CopyWith$Query$AllFilms$allFilms$edges<TRes> {
+  _CopyWithStubImpl$Query$AllFilms$allFilms$edges(this._res);
+
+  TRes _res;
+
+  call(
+          {Query$AllFilms$allFilms$edges$node? node,
+          String? cursor,
+          String? $__typename}) =>
+      _res;
+  CopyWith$Query$AllFilms$allFilms$edges$node<TRes> get node =>
+      CopyWith$Query$AllFilms$allFilms$edges$node.stub(_res);
+}
+
+class Query$AllFilms$allFilms$edges$node {
+  Query$AllFilms$allFilms$edges$node(
       {this.title,
       this.director,
       this.releaseDate,
       this.speciesConnection,
+      this.producers,
       required this.$__typename});
 
-  factory Query$AllFilms$allFilms$films.fromJson(Map<String, dynamic> json) {
+  factory Query$AllFilms$allFilms$edges$node.fromJson(
+      Map<String, dynamic> json) {
     final l$title = json['title'];
     final l$director = json['director'];
     final l$releaseDate = json['releaseDate'];
     final l$speciesConnection = json['speciesConnection'];
+    final l$producers = json['producers'];
     final l$$__typename = json['__typename'];
-    return Query$AllFilms$allFilms$films(
+    return Query$AllFilms$allFilms$edges$node(
         title: (l$title as String?),
         director: (l$director as String?),
         releaseDate: (l$releaseDate as String?),
         speciesConnection: l$speciesConnection == null
             ? null
-            : Query$AllFilms$allFilms$films$speciesConnection.fromJson(
+            : Query$AllFilms$allFilms$edges$node$speciesConnection.fromJson(
                 (l$speciesConnection as Map<String, dynamic>)),
+        producers: (l$producers as List<dynamic>?)
+            ?.map((e) => (e as String?))
+            .toList(),
         $__typename: (l$$__typename as String));
   }
 
@@ -498,7 +672,9 @@ class Query$AllFilms$allFilms$films {
 
   final String? releaseDate;
 
-  final Query$AllFilms$allFilms$films$speciesConnection? speciesConnection;
+  final Query$AllFilms$allFilms$edges$node$speciesConnection? speciesConnection;
+
+  final List<String?>? producers;
 
   final String $__typename;
 
@@ -512,6 +688,8 @@ class Query$AllFilms$allFilms$films {
     _resultData['releaseDate'] = l$releaseDate;
     final l$speciesConnection = speciesConnection;
     _resultData['speciesConnection'] = l$speciesConnection?.toJson();
+    final l$producers = producers;
+    _resultData['producers'] = l$producers?.map((e) => e).toList();
     final l$$__typename = $__typename;
     _resultData['__typename'] = l$$__typename;
     return _resultData;
@@ -523,12 +701,14 @@ class Query$AllFilms$allFilms$films {
     final l$director = director;
     final l$releaseDate = releaseDate;
     final l$speciesConnection = speciesConnection;
+    final l$producers = producers;
     final l$$__typename = $__typename;
     return Object.hashAll([
       l$title,
       l$director,
       l$releaseDate,
       l$speciesConnection,
+      l$producers == null ? null : Object.hashAll(l$producers.map((v) => v)),
       l$$__typename
     ]);
   }
@@ -538,7 +718,7 @@ class Query$AllFilms$allFilms$films {
     if (identical(this, other)) {
       return true;
     }
-    if (!(other is Query$AllFilms$allFilms$films) ||
+    if (!(other is Query$AllFilms$allFilms$edges$node) ||
         runtimeType != other.runtimeType) {
       return false;
     }
@@ -562,6 +742,22 @@ class Query$AllFilms$allFilms$films {
     if (l$speciesConnection != lOther$speciesConnection) {
       return false;
     }
+    final l$producers = producers;
+    final lOther$producers = other.producers;
+    if (l$producers != null && lOther$producers != null) {
+      if (l$producers.length != lOther$producers.length) {
+        return false;
+      }
+      for (int i = 0; i < l$producers.length; i++) {
+        final l$producers$entry = l$producers[i];
+        final lOther$producers$entry = lOther$producers[i];
+        if (l$producers$entry != lOther$producers$entry) {
+          return false;
+        }
+      }
+    } else if (l$producers != lOther$producers) {
+      return false;
+    }
     final l$$__typename = $__typename;
     final lOther$$__typename = other.$__typename;
     if (l$$__typename != lOther$$__typename) {
@@ -571,38 +767,41 @@ class Query$AllFilms$allFilms$films {
   }
 }
 
-extension UtilityExtension$Query$AllFilms$allFilms$films
-    on Query$AllFilms$allFilms$films {
-  CopyWith$Query$AllFilms$allFilms$films<Query$AllFilms$allFilms$films>
-      get copyWith => CopyWith$Query$AllFilms$allFilms$films(this, (i) => i);
+extension UtilityExtension$Query$AllFilms$allFilms$edges$node
+    on Query$AllFilms$allFilms$edges$node {
+  CopyWith$Query$AllFilms$allFilms$edges$node<
+          Query$AllFilms$allFilms$edges$node>
+      get copyWith =>
+          CopyWith$Query$AllFilms$allFilms$edges$node(this, (i) => i);
 }
 
-abstract class CopyWith$Query$AllFilms$allFilms$films<TRes> {
-  factory CopyWith$Query$AllFilms$allFilms$films(
-          Query$AllFilms$allFilms$films instance,
-          TRes Function(Query$AllFilms$allFilms$films) then) =
-      _CopyWithImpl$Query$AllFilms$allFilms$films;
+abstract class CopyWith$Query$AllFilms$allFilms$edges$node<TRes> {
+  factory CopyWith$Query$AllFilms$allFilms$edges$node(
+          Query$AllFilms$allFilms$edges$node instance,
+          TRes Function(Query$AllFilms$allFilms$edges$node) then) =
+      _CopyWithImpl$Query$AllFilms$allFilms$edges$node;
 
-  factory CopyWith$Query$AllFilms$allFilms$films.stub(TRes res) =
-      _CopyWithStubImpl$Query$AllFilms$allFilms$films;
+  factory CopyWith$Query$AllFilms$allFilms$edges$node.stub(TRes res) =
+      _CopyWithStubImpl$Query$AllFilms$allFilms$edges$node;
 
   TRes call(
       {String? title,
       String? director,
       String? releaseDate,
-      Query$AllFilms$allFilms$films$speciesConnection? speciesConnection,
+      Query$AllFilms$allFilms$edges$node$speciesConnection? speciesConnection,
+      List<String?>? producers,
       String? $__typename});
-  CopyWith$Query$AllFilms$allFilms$films$speciesConnection<TRes>
+  CopyWith$Query$AllFilms$allFilms$edges$node$speciesConnection<TRes>
       get speciesConnection;
 }
 
-class _CopyWithImpl$Query$AllFilms$allFilms$films<TRes>
-    implements CopyWith$Query$AllFilms$allFilms$films<TRes> {
-  _CopyWithImpl$Query$AllFilms$allFilms$films(this._instance, this._then);
+class _CopyWithImpl$Query$AllFilms$allFilms$edges$node<TRes>
+    implements CopyWith$Query$AllFilms$allFilms$edges$node<TRes> {
+  _CopyWithImpl$Query$AllFilms$allFilms$edges$node(this._instance, this._then);
 
-  final Query$AllFilms$allFilms$films _instance;
+  final Query$AllFilms$allFilms$edges$node _instance;
 
-  final TRes Function(Query$AllFilms$allFilms$films) _then;
+  final TRes Function(Query$AllFilms$allFilms$edges$node) _then;
 
   static const _undefined = {};
 
@@ -611,8 +810,9 @@ class _CopyWithImpl$Query$AllFilms$allFilms$films<TRes>
           Object? director = _undefined,
           Object? releaseDate = _undefined,
           Object? speciesConnection = _undefined,
+          Object? producers = _undefined,
           Object? $__typename = _undefined}) =>
-      _then(Query$AllFilms$allFilms$films(
+      _then(Query$AllFilms$allFilms$edges$node(
           title: title == _undefined ? _instance.title : (title as String?),
           director: director == _undefined
               ? _instance.director
@@ -623,24 +823,27 @@ class _CopyWithImpl$Query$AllFilms$allFilms$films<TRes>
           speciesConnection: speciesConnection == _undefined
               ? _instance.speciesConnection
               : (speciesConnection
-                  as Query$AllFilms$allFilms$films$speciesConnection?),
+                  as Query$AllFilms$allFilms$edges$node$speciesConnection?),
+          producers: producers == _undefined
+              ? _instance.producers
+              : (producers as List<String?>?),
           $__typename: $__typename == _undefined || $__typename == null
               ? _instance.$__typename
               : ($__typename as String)));
-  CopyWith$Query$AllFilms$allFilms$films$speciesConnection<TRes>
+  CopyWith$Query$AllFilms$allFilms$edges$node$speciesConnection<TRes>
       get speciesConnection {
     final local$speciesConnection = _instance.speciesConnection;
     return local$speciesConnection == null
-        ? CopyWith$Query$AllFilms$allFilms$films$speciesConnection.stub(
+        ? CopyWith$Query$AllFilms$allFilms$edges$node$speciesConnection.stub(
             _then(_instance))
-        : CopyWith$Query$AllFilms$allFilms$films$speciesConnection(
+        : CopyWith$Query$AllFilms$allFilms$edges$node$speciesConnection(
             local$speciesConnection, (e) => call(speciesConnection: e));
   }
 }
 
-class _CopyWithStubImpl$Query$AllFilms$allFilms$films<TRes>
-    implements CopyWith$Query$AllFilms$allFilms$films<TRes> {
-  _CopyWithStubImpl$Query$AllFilms$allFilms$films(this._res);
+class _CopyWithStubImpl$Query$AllFilms$allFilms$edges$node<TRes>
+    implements CopyWith$Query$AllFilms$allFilms$edges$node<TRes> {
+  _CopyWithStubImpl$Query$AllFilms$allFilms$edges$node(this._res);
 
   TRes _res;
 
@@ -648,33 +851,37 @@ class _CopyWithStubImpl$Query$AllFilms$allFilms$films<TRes>
           {String? title,
           String? director,
           String? releaseDate,
-          Query$AllFilms$allFilms$films$speciesConnection? speciesConnection,
+          Query$AllFilms$allFilms$edges$node$speciesConnection?
+              speciesConnection,
+          List<String?>? producers,
           String? $__typename}) =>
       _res;
-  CopyWith$Query$AllFilms$allFilms$films$speciesConnection<TRes>
+  CopyWith$Query$AllFilms$allFilms$edges$node$speciesConnection<TRes>
       get speciesConnection =>
-          CopyWith$Query$AllFilms$allFilms$films$speciesConnection.stub(_res);
+          CopyWith$Query$AllFilms$allFilms$edges$node$speciesConnection.stub(
+              _res);
 }
 
-class Query$AllFilms$allFilms$films$speciesConnection {
-  Query$AllFilms$allFilms$films$speciesConnection(
+class Query$AllFilms$allFilms$edges$node$speciesConnection {
+  Query$AllFilms$allFilms$edges$node$speciesConnection(
       {this.species, required this.$__typename});
 
-  factory Query$AllFilms$allFilms$films$speciesConnection.fromJson(
+  factory Query$AllFilms$allFilms$edges$node$speciesConnection.fromJson(
       Map<String, dynamic> json) {
     final l$species = json['species'];
     final l$$__typename = json['__typename'];
-    return Query$AllFilms$allFilms$films$speciesConnection(
+    return Query$AllFilms$allFilms$edges$node$speciesConnection(
         species: (l$species as List<dynamic>?)
             ?.map((e) => e == null
                 ? null
-                : Query$AllFilms$allFilms$films$speciesConnection$species
+                : Query$AllFilms$allFilms$edges$node$speciesConnection$species
                     .fromJson((e as Map<String, dynamic>)))
             .toList(),
         $__typename: (l$$__typename as String));
   }
 
-  final List<Query$AllFilms$allFilms$films$speciesConnection$species?>? species;
+  final List<Query$AllFilms$allFilms$edges$node$speciesConnection$species?>?
+      species;
 
   final String $__typename;
 
@@ -702,7 +909,7 @@ class Query$AllFilms$allFilms$films$speciesConnection {
     if (identical(this, other)) {
       return true;
     }
-    if (!(other is Query$AllFilms$allFilms$films$speciesConnection) ||
+    if (!(other is Query$AllFilms$allFilms$edges$node$speciesConnection) ||
         runtimeType != other.runtimeType) {
       return false;
     }
@@ -731,101 +938,110 @@ class Query$AllFilms$allFilms$films$speciesConnection {
   }
 }
 
-extension UtilityExtension$Query$AllFilms$allFilms$films$speciesConnection
-    on Query$AllFilms$allFilms$films$speciesConnection {
-  CopyWith$Query$AllFilms$allFilms$films$speciesConnection<
-          Query$AllFilms$allFilms$films$speciesConnection>
-      get copyWith => CopyWith$Query$AllFilms$allFilms$films$speciesConnection(
-          this, (i) => i);
+extension UtilityExtension$Query$AllFilms$allFilms$edges$node$speciesConnection
+    on Query$AllFilms$allFilms$edges$node$speciesConnection {
+  CopyWith$Query$AllFilms$allFilms$edges$node$speciesConnection<
+          Query$AllFilms$allFilms$edges$node$speciesConnection>
+      get copyWith =>
+          CopyWith$Query$AllFilms$allFilms$edges$node$speciesConnection(
+              this, (i) => i);
 }
 
-abstract class CopyWith$Query$AllFilms$allFilms$films$speciesConnection<TRes> {
-  factory CopyWith$Query$AllFilms$allFilms$films$speciesConnection(
-          Query$AllFilms$allFilms$films$speciesConnection instance,
-          TRes Function(Query$AllFilms$allFilms$films$speciesConnection) then) =
-      _CopyWithImpl$Query$AllFilms$allFilms$films$speciesConnection;
+abstract class CopyWith$Query$AllFilms$allFilms$edges$node$speciesConnection<
+    TRes> {
+  factory CopyWith$Query$AllFilms$allFilms$edges$node$speciesConnection(
+          Query$AllFilms$allFilms$edges$node$speciesConnection instance,
+          TRes Function(Query$AllFilms$allFilms$edges$node$speciesConnection)
+              then) =
+      _CopyWithImpl$Query$AllFilms$allFilms$edges$node$speciesConnection;
 
-  factory CopyWith$Query$AllFilms$allFilms$films$speciesConnection.stub(
+  factory CopyWith$Query$AllFilms$allFilms$edges$node$speciesConnection.stub(
           TRes res) =
-      _CopyWithStubImpl$Query$AllFilms$allFilms$films$speciesConnection;
+      _CopyWithStubImpl$Query$AllFilms$allFilms$edges$node$speciesConnection;
 
   TRes call(
-      {List<Query$AllFilms$allFilms$films$speciesConnection$species?>? species,
+      {List<Query$AllFilms$allFilms$edges$node$speciesConnection$species?>?
+          species,
       String? $__typename});
   TRes species(
-      Iterable<Query$AllFilms$allFilms$films$speciesConnection$species?>? Function(
+      Iterable<Query$AllFilms$allFilms$edges$node$speciesConnection$species?>? Function(
               Iterable<
-                  CopyWith$Query$AllFilms$allFilms$films$speciesConnection$species<
-                      Query$AllFilms$allFilms$films$speciesConnection$species>?>?)
+                  CopyWith$Query$AllFilms$allFilms$edges$node$speciesConnection$species<
+                      Query$AllFilms$allFilms$edges$node$speciesConnection$species>?>?)
           _fn);
 }
 
-class _CopyWithImpl$Query$AllFilms$allFilms$films$speciesConnection<TRes>
-    implements CopyWith$Query$AllFilms$allFilms$films$speciesConnection<TRes> {
-  _CopyWithImpl$Query$AllFilms$allFilms$films$speciesConnection(
+class _CopyWithImpl$Query$AllFilms$allFilms$edges$node$speciesConnection<TRes>
+    implements
+        CopyWith$Query$AllFilms$allFilms$edges$node$speciesConnection<TRes> {
+  _CopyWithImpl$Query$AllFilms$allFilms$edges$node$speciesConnection(
       this._instance, this._then);
 
-  final Query$AllFilms$allFilms$films$speciesConnection _instance;
+  final Query$AllFilms$allFilms$edges$node$speciesConnection _instance;
 
-  final TRes Function(Query$AllFilms$allFilms$films$speciesConnection) _then;
+  final TRes Function(Query$AllFilms$allFilms$edges$node$speciesConnection)
+      _then;
 
   static const _undefined = {};
 
   TRes call({Object? species = _undefined, Object? $__typename = _undefined}) =>
-      _then(Query$AllFilms$allFilms$films$speciesConnection(
+      _then(Query$AllFilms$allFilms$edges$node$speciesConnection(
           species: species == _undefined
               ? _instance.species
               : (species as List<
-                  Query$AllFilms$allFilms$films$speciesConnection$species?>?),
+                  Query$AllFilms$allFilms$edges$node$speciesConnection$species?>?),
           $__typename: $__typename == _undefined || $__typename == null
               ? _instance.$__typename
               : ($__typename as String)));
   TRes species(
-          Iterable<Query$AllFilms$allFilms$films$speciesConnection$species?>? Function(
+          Iterable<Query$AllFilms$allFilms$edges$node$speciesConnection$species?>? Function(
                   Iterable<
-                      CopyWith$Query$AllFilms$allFilms$films$speciesConnection$species<
-                          Query$AllFilms$allFilms$films$speciesConnection$species>?>?)
+                      CopyWith$Query$AllFilms$allFilms$edges$node$speciesConnection$species<
+                          Query$AllFilms$allFilms$edges$node$speciesConnection$species>?>?)
               _fn) =>
       call(
           species: _fn(_instance.species?.map((e) => e == null
               ? null
-              : CopyWith$Query$AllFilms$allFilms$films$speciesConnection$species(
+              : CopyWith$Query$AllFilms$allFilms$edges$node$speciesConnection$species(
                   e, (i) => i)))?.toList());
 }
 
-class _CopyWithStubImpl$Query$AllFilms$allFilms$films$speciesConnection<TRes>
-    implements CopyWith$Query$AllFilms$allFilms$films$speciesConnection<TRes> {
-  _CopyWithStubImpl$Query$AllFilms$allFilms$films$speciesConnection(this._res);
+class _CopyWithStubImpl$Query$AllFilms$allFilms$edges$node$speciesConnection<
+        TRes>
+    implements
+        CopyWith$Query$AllFilms$allFilms$edges$node$speciesConnection<TRes> {
+  _CopyWithStubImpl$Query$AllFilms$allFilms$edges$node$speciesConnection(
+      this._res);
 
   TRes _res;
 
   call(
-          {List<Query$AllFilms$allFilms$films$speciesConnection$species?>?
+          {List<Query$AllFilms$allFilms$edges$node$speciesConnection$species?>?
               species,
           String? $__typename}) =>
       _res;
   species(_fn) => _res;
 }
 
-class Query$AllFilms$allFilms$films$speciesConnection$species {
-  Query$AllFilms$allFilms$films$speciesConnection$species(
+class Query$AllFilms$allFilms$edges$node$speciesConnection$species {
+  Query$AllFilms$allFilms$edges$node$speciesConnection$species(
       {this.name,
       this.classification,
       this.homeworld,
       required this.$__typename});
 
-  factory Query$AllFilms$allFilms$films$speciesConnection$species.fromJson(
+  factory Query$AllFilms$allFilms$edges$node$speciesConnection$species.fromJson(
       Map<String, dynamic> json) {
     final l$name = json['name'];
     final l$classification = json['classification'];
     final l$homeworld = json['homeworld'];
     final l$$__typename = json['__typename'];
-    return Query$AllFilms$allFilms$films$speciesConnection$species(
+    return Query$AllFilms$allFilms$edges$node$speciesConnection$species(
         name: (l$name as String?),
         classification: (l$classification as String?),
         homeworld: l$homeworld == null
             ? null
-            : Query$AllFilms$allFilms$films$speciesConnection$species$homeworld
+            : Query$AllFilms$allFilms$edges$node$speciesConnection$species$homeworld
                 .fromJson((l$homeworld as Map<String, dynamic>)),
         $__typename: (l$$__typename as String));
   }
@@ -834,7 +1050,7 @@ class Query$AllFilms$allFilms$films$speciesConnection$species {
 
   final String? classification;
 
-  final Query$AllFilms$allFilms$films$speciesConnection$species$homeworld?
+  final Query$AllFilms$allFilms$edges$node$speciesConnection$species$homeworld?
       homeworld;
 
   final String $__typename;
@@ -867,7 +1083,8 @@ class Query$AllFilms$allFilms$films$speciesConnection$species {
     if (identical(this, other)) {
       return true;
     }
-    if (!(other is Query$AllFilms$allFilms$films$speciesConnection$species) ||
+    if (!(other
+            is Query$AllFilms$allFilms$edges$node$speciesConnection$species) ||
         runtimeType != other.runtimeType) {
       return false;
     }
@@ -895,48 +1112,50 @@ class Query$AllFilms$allFilms$films$speciesConnection$species {
   }
 }
 
-extension UtilityExtension$Query$AllFilms$allFilms$films$speciesConnection$species
-    on Query$AllFilms$allFilms$films$speciesConnection$species {
-  CopyWith$Query$AllFilms$allFilms$films$speciesConnection$species<
-          Query$AllFilms$allFilms$films$speciesConnection$species>
+extension UtilityExtension$Query$AllFilms$allFilms$edges$node$speciesConnection$species
+    on Query$AllFilms$allFilms$edges$node$speciesConnection$species {
+  CopyWith$Query$AllFilms$allFilms$edges$node$speciesConnection$species<
+          Query$AllFilms$allFilms$edges$node$speciesConnection$species>
       get copyWith =>
-          CopyWith$Query$AllFilms$allFilms$films$speciesConnection$species(
+          CopyWith$Query$AllFilms$allFilms$edges$node$speciesConnection$species(
               this, (i) => i);
 }
 
-abstract class CopyWith$Query$AllFilms$allFilms$films$speciesConnection$species<
+abstract class CopyWith$Query$AllFilms$allFilms$edges$node$speciesConnection$species<
     TRes> {
-  factory CopyWith$Query$AllFilms$allFilms$films$speciesConnection$species(
-          Query$AllFilms$allFilms$films$speciesConnection$species instance,
-          TRes Function(Query$AllFilms$allFilms$films$speciesConnection$species)
+  factory CopyWith$Query$AllFilms$allFilms$edges$node$speciesConnection$species(
+          Query$AllFilms$allFilms$edges$node$speciesConnection$species instance,
+          TRes Function(
+                  Query$AllFilms$allFilms$edges$node$speciesConnection$species)
               then) =
-      _CopyWithImpl$Query$AllFilms$allFilms$films$speciesConnection$species;
+      _CopyWithImpl$Query$AllFilms$allFilms$edges$node$speciesConnection$species;
 
-  factory CopyWith$Query$AllFilms$allFilms$films$speciesConnection$species.stub(
+  factory CopyWith$Query$AllFilms$allFilms$edges$node$speciesConnection$species.stub(
           TRes res) =
-      _CopyWithStubImpl$Query$AllFilms$allFilms$films$speciesConnection$species;
+      _CopyWithStubImpl$Query$AllFilms$allFilms$edges$node$speciesConnection$species;
 
   TRes call(
       {String? name,
       String? classification,
-      Query$AllFilms$allFilms$films$speciesConnection$species$homeworld?
+      Query$AllFilms$allFilms$edges$node$speciesConnection$species$homeworld?
           homeworld,
       String? $__typename});
-  CopyWith$Query$AllFilms$allFilms$films$speciesConnection$species$homeworld<
+  CopyWith$Query$AllFilms$allFilms$edges$node$speciesConnection$species$homeworld<
       TRes> get homeworld;
 }
 
-class _CopyWithImpl$Query$AllFilms$allFilms$films$speciesConnection$species<
+class _CopyWithImpl$Query$AllFilms$allFilms$edges$node$speciesConnection$species<
         TRes>
     implements
-        CopyWith$Query$AllFilms$allFilms$films$speciesConnection$species<TRes> {
-  _CopyWithImpl$Query$AllFilms$allFilms$films$speciesConnection$species(
+        CopyWith$Query$AllFilms$allFilms$edges$node$speciesConnection$species<
+            TRes> {
+  _CopyWithImpl$Query$AllFilms$allFilms$edges$node$speciesConnection$species(
       this._instance, this._then);
 
-  final Query$AllFilms$allFilms$films$speciesConnection$species _instance;
+  final Query$AllFilms$allFilms$edges$node$speciesConnection$species _instance;
 
-  final TRes Function(Query$AllFilms$allFilms$films$speciesConnection$species)
-      _then;
+  final TRes Function(
+      Query$AllFilms$allFilms$edges$node$speciesConnection$species) _then;
 
   static const _undefined = {};
 
@@ -945,7 +1164,7 @@ class _CopyWithImpl$Query$AllFilms$allFilms$films$speciesConnection$species<
           Object? classification = _undefined,
           Object? homeworld = _undefined,
           Object? $__typename = _undefined}) =>
-      _then(Query$AllFilms$allFilms$films$speciesConnection$species(
+      _then(Query$AllFilms$allFilms$edges$node$speciesConnection$species(
           name: name == _undefined ? _instance.name : (name as String?),
           classification: classification == _undefined
               ? _instance.classification
@@ -953,26 +1172,27 @@ class _CopyWithImpl$Query$AllFilms$allFilms$films$speciesConnection$species<
           homeworld: homeworld == _undefined
               ? _instance.homeworld
               : (homeworld
-                  as Query$AllFilms$allFilms$films$speciesConnection$species$homeworld?),
+                  as Query$AllFilms$allFilms$edges$node$speciesConnection$species$homeworld?),
           $__typename: $__typename == _undefined || $__typename == null
               ? _instance.$__typename
               : ($__typename as String)));
-  CopyWith$Query$AllFilms$allFilms$films$speciesConnection$species$homeworld<
+  CopyWith$Query$AllFilms$allFilms$edges$node$speciesConnection$species$homeworld<
       TRes> get homeworld {
     final local$homeworld = _instance.homeworld;
     return local$homeworld == null
-        ? CopyWith$Query$AllFilms$allFilms$films$speciesConnection$species$homeworld
+        ? CopyWith$Query$AllFilms$allFilms$edges$node$speciesConnection$species$homeworld
             .stub(_then(_instance))
-        : CopyWith$Query$AllFilms$allFilms$films$speciesConnection$species$homeworld(
+        : CopyWith$Query$AllFilms$allFilms$edges$node$speciesConnection$species$homeworld(
             local$homeworld, (e) => call(homeworld: e));
   }
 }
 
-class _CopyWithStubImpl$Query$AllFilms$allFilms$films$speciesConnection$species<
+class _CopyWithStubImpl$Query$AllFilms$allFilms$edges$node$speciesConnection$species<
         TRes>
     implements
-        CopyWith$Query$AllFilms$allFilms$films$speciesConnection$species<TRes> {
-  _CopyWithStubImpl$Query$AllFilms$allFilms$films$speciesConnection$species(
+        CopyWith$Query$AllFilms$allFilms$edges$node$speciesConnection$species<
+            TRes> {
+  _CopyWithStubImpl$Query$AllFilms$allFilms$edges$node$speciesConnection$species(
       this._res);
 
   TRes _res;
@@ -980,26 +1200,26 @@ class _CopyWithStubImpl$Query$AllFilms$allFilms$films$speciesConnection$species<
   call(
           {String? name,
           String? classification,
-          Query$AllFilms$allFilms$films$speciesConnection$species$homeworld?
+          Query$AllFilms$allFilms$edges$node$speciesConnection$species$homeworld?
               homeworld,
           String? $__typename}) =>
       _res;
-  CopyWith$Query$AllFilms$allFilms$films$speciesConnection$species$homeworld<
+  CopyWith$Query$AllFilms$allFilms$edges$node$speciesConnection$species$homeworld<
           TRes>
       get homeworld =>
-          CopyWith$Query$AllFilms$allFilms$films$speciesConnection$species$homeworld
+          CopyWith$Query$AllFilms$allFilms$edges$node$speciesConnection$species$homeworld
               .stub(_res);
 }
 
-class Query$AllFilms$allFilms$films$speciesConnection$species$homeworld {
-  Query$AllFilms$allFilms$films$speciesConnection$species$homeworld(
+class Query$AllFilms$allFilms$edges$node$speciesConnection$species$homeworld {
+  Query$AllFilms$allFilms$edges$node$speciesConnection$species$homeworld(
       {this.name, required this.$__typename});
 
-  factory Query$AllFilms$allFilms$films$speciesConnection$species$homeworld.fromJson(
+  factory Query$AllFilms$allFilms$edges$node$speciesConnection$species$homeworld.fromJson(
       Map<String, dynamic> json) {
     final l$name = json['name'];
     final l$$__typename = json['__typename'];
-    return Query$AllFilms$allFilms$films$speciesConnection$species$homeworld(
+    return Query$AllFilms$allFilms$edges$node$speciesConnection$species$homeworld(
         name: (l$name as String?), $__typename: (l$$__typename as String));
   }
 
@@ -1029,7 +1249,7 @@ class Query$AllFilms$allFilms$films$speciesConnection$species$homeworld {
       return true;
     }
     if (!(other
-            is Query$AllFilms$allFilms$films$speciesConnection$species$homeworld) ||
+            is Query$AllFilms$allFilms$edges$node$speciesConnection$species$homeworld) ||
         runtimeType != other.runtimeType) {
       return false;
     }
@@ -1047,62 +1267,65 @@ class Query$AllFilms$allFilms$films$speciesConnection$species$homeworld {
   }
 }
 
-extension UtilityExtension$Query$AllFilms$allFilms$films$speciesConnection$species$homeworld
-    on Query$AllFilms$allFilms$films$speciesConnection$species$homeworld {
-  CopyWith$Query$AllFilms$allFilms$films$speciesConnection$species$homeworld<
-          Query$AllFilms$allFilms$films$speciesConnection$species$homeworld>
+extension UtilityExtension$Query$AllFilms$allFilms$edges$node$speciesConnection$species$homeworld
+    on Query$AllFilms$allFilms$edges$node$speciesConnection$species$homeworld {
+  CopyWith$Query$AllFilms$allFilms$edges$node$speciesConnection$species$homeworld<
+          Query$AllFilms$allFilms$edges$node$speciesConnection$species$homeworld>
       get copyWith =>
-          CopyWith$Query$AllFilms$allFilms$films$speciesConnection$species$homeworld(
+          CopyWith$Query$AllFilms$allFilms$edges$node$speciesConnection$species$homeworld(
               this, (i) => i);
 }
 
-abstract class CopyWith$Query$AllFilms$allFilms$films$speciesConnection$species$homeworld<
+abstract class CopyWith$Query$AllFilms$allFilms$edges$node$speciesConnection$species$homeworld<
     TRes> {
-  factory CopyWith$Query$AllFilms$allFilms$films$speciesConnection$species$homeworld(
-          Query$AllFilms$allFilms$films$speciesConnection$species$homeworld
+  factory CopyWith$Query$AllFilms$allFilms$edges$node$speciesConnection$species$homeworld(
+          Query$AllFilms$allFilms$edges$node$speciesConnection$species$homeworld
               instance,
           TRes Function(
-                  Query$AllFilms$allFilms$films$speciesConnection$species$homeworld)
+                  Query$AllFilms$allFilms$edges$node$speciesConnection$species$homeworld)
               then) =
-      _CopyWithImpl$Query$AllFilms$allFilms$films$speciesConnection$species$homeworld;
+      _CopyWithImpl$Query$AllFilms$allFilms$edges$node$speciesConnection$species$homeworld;
 
-  factory CopyWith$Query$AllFilms$allFilms$films$speciesConnection$species$homeworld.stub(
+  factory CopyWith$Query$AllFilms$allFilms$edges$node$speciesConnection$species$homeworld.stub(
           TRes res) =
-      _CopyWithStubImpl$Query$AllFilms$allFilms$films$speciesConnection$species$homeworld;
+      _CopyWithStubImpl$Query$AllFilms$allFilms$edges$node$speciesConnection$species$homeworld;
 
   TRes call({String? name, String? $__typename});
 }
 
-class _CopyWithImpl$Query$AllFilms$allFilms$films$speciesConnection$species$homeworld<
+class _CopyWithImpl$Query$AllFilms$allFilms$edges$node$speciesConnection$species$homeworld<
         TRes>
     implements
-        CopyWith$Query$AllFilms$allFilms$films$speciesConnection$species$homeworld<
+        CopyWith$Query$AllFilms$allFilms$edges$node$speciesConnection$species$homeworld<
             TRes> {
-  _CopyWithImpl$Query$AllFilms$allFilms$films$speciesConnection$species$homeworld(
+  _CopyWithImpl$Query$AllFilms$allFilms$edges$node$speciesConnection$species$homeworld(
       this._instance, this._then);
 
-  final Query$AllFilms$allFilms$films$speciesConnection$species$homeworld
+  final Query$AllFilms$allFilms$edges$node$speciesConnection$species$homeworld
       _instance;
 
   final TRes Function(
-      Query$AllFilms$allFilms$films$speciesConnection$species$homeworld) _then;
+          Query$AllFilms$allFilms$edges$node$speciesConnection$species$homeworld)
+      _then;
 
   static const _undefined = {};
 
-  TRes call({Object? name = _undefined, Object? $__typename = _undefined}) =>
-      _then(Query$AllFilms$allFilms$films$speciesConnection$species$homeworld(
-          name: name == _undefined ? _instance.name : (name as String?),
-          $__typename: $__typename == _undefined || $__typename == null
-              ? _instance.$__typename
-              : ($__typename as String)));
+  TRes call(
+          {Object? name = _undefined, Object? $__typename = _undefined}) =>
+      _then(
+          Query$AllFilms$allFilms$edges$node$speciesConnection$species$homeworld(
+              name: name == _undefined ? _instance.name : (name as String?),
+              $__typename: $__typename == _undefined || $__typename == null
+                  ? _instance.$__typename
+                  : ($__typename as String)));
 }
 
-class _CopyWithStubImpl$Query$AllFilms$allFilms$films$speciesConnection$species$homeworld<
+class _CopyWithStubImpl$Query$AllFilms$allFilms$edges$node$speciesConnection$species$homeworld<
         TRes>
     implements
-        CopyWith$Query$AllFilms$allFilms$films$speciesConnection$species$homeworld<
+        CopyWith$Query$AllFilms$allFilms$edges$node$speciesConnection$species$homeworld<
             TRes> {
-  _CopyWithStubImpl$Query$AllFilms$allFilms$films$speciesConnection$species$homeworld(
+  _CopyWithStubImpl$Query$AllFilms$allFilms$edges$node$speciesConnection$species$homeworld(
       this._res);
 
   TRes _res;
