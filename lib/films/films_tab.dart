@@ -5,8 +5,12 @@ class FilmsTab extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    return Container(
-      child: Text('All Film'),
-    );
+    return RefreshIndicator(
+        child: ListView(
+          padding: const EdgeInsets.symmetric(horizontal: 16, vertical: 16),
+        ),
+        onRefresh: () async {
+          await refetch!();
+        });
   }
 }
