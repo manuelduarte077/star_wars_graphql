@@ -6,6 +6,16 @@ query AllFilms {
                 title
                 director
                 releaseDate
+                speciesConnection {
+                    species {
+                        name
+                        classification
+                        homeworld {
+                            name
+                        }
+                    }
+                }
+                producers
             }
         }
     }
