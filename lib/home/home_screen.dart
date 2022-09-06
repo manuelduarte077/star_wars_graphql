@@ -19,7 +19,7 @@ class HomeScreen extends HookWidget {
       bottomNavigationBar: BottomNavigationBar(
         items: const [
           BottomNavigationBarItem(
-            icon: Icon(Icons.rocket_launch),
+            icon: Icon(Icons.movie),
             label: 'Films',
           ),
           BottomNavigationBarItem(
