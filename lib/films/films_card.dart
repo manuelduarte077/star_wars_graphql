@@ -15,7 +15,11 @@ class FilmsCard extends StatelessWidget {
         child: Column(
           children: [
             ListTile(
-              onTap: () => GoRouter.of(context).go('/details'),
+              /// Pasar argumentos a la siguiente ruta con [GoRouter.of(context).push]
+              onTap: () => GoRouter.of(context).push(
+                '/details',
+                extra: filmsQuery,
+              ),
               title: Text(
                 overflow: TextOverflow.ellipsis,
                 maxLines: 1,
