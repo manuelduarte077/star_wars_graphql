@@ -2,21 +2,11 @@ query AllFilms {
     allFilms {
         edges {
             node {
+                id
                 title
                 director
                 releaseDate
-                speciesConnection {
-                    species {
-                        name
-                        classification
-                        homeworld {
-                            name
-                        }
-                    }
-                }
-                producers
             }
-            cursor
         }
     }
 }

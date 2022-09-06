@@ -1,0 +1,18 @@
+query DetailsFilms {
+    allFilms {
+        edges {
+            node {
+                speciesConnection {
+                    species {
+                        name
+                        classification
+                        homeworld {
+                            name
+                        }
+                    }
+                }
+                producers
+            }
+        }
+    }
+}
