@@ -1,5 +1,5 @@
 import 'package:flutter/material.dart';
-import 'package:star_wars/films/films_card_details.dart';
+import 'package:go_router/go_router.dart';
 import 'package:star_wars/films/~graphql/__generated__/films_tab.query.graphql.dart';
 
 class FilmsCard extends StatelessWidget {
@@ -15,7 +15,7 @@ class FilmsCard extends StatelessWidget {
         child: Column(
           children: [
             ListTile(
-              onTap: () {},
+              onTap: () => GoRouter.of(context).go('/details'),
               title: Text(
                 overflow: TextOverflow.ellipsis,
                 maxLines: 1,
