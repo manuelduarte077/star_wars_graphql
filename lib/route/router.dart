@@ -13,7 +13,9 @@ final GoRouter router = GoRouter(
     GoRoute(
       path: '/details',
       builder: (context, GoRouterState state) {
-        return const FilmsDetails();
+        return const FilmsDetails(
+          filmsDetail: null,
+        );
       },
     ),
   ],

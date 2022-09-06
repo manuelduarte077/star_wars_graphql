@@ -1,21 +1,36 @@
 import 'package:flutter/material.dart';
+import 'package:star_wars/films/details_films_graphic.dart';
+import 'package:star_wars/films/~graphql/__generated__/films_tab.query.graphql.dart';
 
 class FilmsDetails extends StatelessWidget {
-  const FilmsDetails({super.key});
+  final Query$AllFilms$allFilms$edges$node? filmsDetail;
+
+  const FilmsDetails({super.key, required this.filmsDetail});
 
   @override
   Widget build(BuildContext context) {
-    return Padding(
-      padding: const EdgeInsets.only(bottom: 32),
-      child: Card(
-        child: Column(
-          children: const [
-            Text(
-              'Films Details',
-              style: TextStyle(color: Colors.white),
-            ),
-          ],
-        ),
+    print('Hola $filmsDetail');
+    return Scaffold(
+      appBar: AppBar(
+        centerTitle: true,
+        title: Text(filmsDetail?.title ?? ''),
+      ),
+      body: Stack(
+        fit: StackFit.expand,
+        children: [
+          const DetailFilmsGraphic(),
+          Column(
+            mainAxisAlignment: MainAxisAlignment.center,
+            children: const [
+              Center(
+                child: Padding(
+                  padding: EdgeInsets.symmetric(horizontal: 16),
+                  child: Text('Hola'),
+                ),
+              ),
+            ],
+          ),
+        ],
       ),
     );
   }
