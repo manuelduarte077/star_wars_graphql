@@ -7,14 +7,13 @@ import 'package:graphql_flutter/graphql_flutter.dart';
 ///
 /// @param result The network request result
 
-
 Widget? validateResult(QueryResult? result, {bool allowCache = true}) {
   const loading = Center(child: CircularProgressIndicator());
 
   if (result == null) return loading;
   if (result.hasException) {
     final exceptionStr = result.exception.toString();
-    print(">>> EXCEPTION: $exceptionStr");
+    print('>>> EXCEPTION: $exceptionStr');
     return Text(exceptionStr);
   }
   if (result.isLoading && (!allowCache || result.parsedData == null)) {

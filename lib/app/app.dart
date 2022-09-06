@@ -1,6 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:graphql_flutter/graphql_flutter.dart';
-import 'package:star_wars/home/home_screen.dart';
+import 'package:star_wars/route/router.dart';
 
 class MyApp extends StatelessWidget {
   const MyApp({Key? key}) : super(key: key);
@@ -11,17 +11,14 @@ class MyApp extends StatelessWidget {
       client: ValueNotifier(
         GraphQLClient(
           cache: GraphQLCache(store: HiveStore()),
-          link: HttpLink('https://swapi-graphql.netlify.app/'),
+          link: HttpLink(
+              'https://swapi-graphql.netlify.app/.netlify/functions/index'),
         ),
       ),
-      child: MaterialApp(
-        onGenerateRoute: (settings) {
-          switch(settings.name) {
-            case '/':
-              return MaterialPageRoute(builder: (_) => const HomeScreen());
-          }
-        },
-        title: 'Star Wars',
+      child: MaterialApp.router(
+        routeInformationProvider: router.routeInformationProvider,
+        routeInformationParser: router.routeInformationParser,
+        routerDelegate: router.routerDelegate,
         theme: ThemeData.from(
           useMaterial3: true,
           colorScheme: ColorScheme.fromSeed(
