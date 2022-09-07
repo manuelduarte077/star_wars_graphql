@@ -50,6 +50,23 @@ class _DetilFilmsGraphicState extends State<DetailFilmsGraphic>
                 }),
           ),
           Positioned(
+            right: 30,
+            top: 150,
+            child: AnimatedBuilder(
+              animation: _controller,
+              builder: (context, widget) {
+                final angle = getAngle(-.8, 2, 1);
+                return Transform.rotate(
+                  angle: angle,
+                  child: Icon(
+                    Icons.rocket_outlined,
+                    size: 70 + (40 * angle.abs()),
+                  ),
+                );
+              },
+            ),
+          ),
+          Positioned(
             right: 0,
             bottom: -130,
             child: AnimatedBuilder(
