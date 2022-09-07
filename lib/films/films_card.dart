@@ -32,7 +32,6 @@ class FilmsCard extends StatelessWidget {
               subtitle: Column(
                 crossAxisAlignment: CrossAxisAlignment.start,
                 children: [
-                  Text(filmsQuery?.releaseDate ?? ''),
                   Text(filmsQuery?.director ?? ''),
                 ],
               ),
