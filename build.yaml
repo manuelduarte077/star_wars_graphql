@@ -1,23 +1,23 @@
 targets:
-    $default:
-        builders:
-            graphql_codegen:
-                options:
-                    # In this schema it uses 2 scalars for DateTimes and 1 for uuid
-                    #these convert the scalars to Dart types automatically
-                    scalars:
-                        Date:
-                            type: DateTime
-                        timestamptz:
-                            type: DateTime
-                        uuid:
-                            type: String
-                    # graphql_codegen will generate classes following each of the
-                    # libraries conventions listed here, graphql comes with Options
-                    # classes and graphql_flutter brings all the operations
-                    clients:
-                        - graphql
-                        - graphql_flutter
-                    # Where to put the generated types, in this case a folder in the
-                    # relative directory of the graphql files called __generated__
-                    outputDirectory: __generated__
+  $default:
+    builders:
+      graphql_codegen:
+        options:
+          # In this schema it uses 2 scalars for DateTimes and 1 for uuid
+          #these convert the scalars to Dart types automatically
+          scalars:
+            Date:
+              type: DateTime
+            timestamptz:
+              type: DateTime
+            uuid:
+              type: String
+          # graphql_codegen will generate classes following each of the
+          # libraries conventions listed here, graphql comes with Options
+          # classes and graphql_flutter brings all the operations
+          clients:
+            - graphql
+            - graphql_flutter
+          # Where to put the generated types, in this case a folder in the
+          # relative directory of the graphql files called __generated__
+          outputDirectory: __generated__

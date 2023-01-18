@@ -15,7 +15,7 @@ final GoRouter router = GoRouter(
         GoRoute(
           path: 'details',
           pageBuilder: (context, state) {
-            /// Obtener los argumentos de la ruta actual y pasarlos a la siguiente ruta
+            /// Obtener los argumentos de la ruta actual y pasarlos
             final filmsDetail =
                 state.extra as Query$AllFilms$allFilms$edges$node?;
 

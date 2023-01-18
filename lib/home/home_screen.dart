@@ -4,7 +4,7 @@ import 'package:star_wars/films/films_tab.dart';
 import 'package:star_wars/planets/planet_tab.dart';
 
 class HomeScreen extends HookWidget {
-  const HomeScreen({Key? key}) : super(key: key);
+  const HomeScreen({super.key});
 
   @override
   Widget build(BuildContext context) {
