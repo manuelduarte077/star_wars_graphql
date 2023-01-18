@@ -3,7 +3,7 @@ import 'dart:math';
 import 'package:flutter/material.dart';
 
 class DetailFilmsGraphic extends StatefulWidget {
-  const DetailFilmsGraphic({Key? key}) : super(key: key);
+  const DetailFilmsGraphic({super.key});
 
   @override
   State<DetailFilmsGraphic> createState() => _DetilFilmsGraphicState();

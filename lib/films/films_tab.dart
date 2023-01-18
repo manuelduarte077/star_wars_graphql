@@ -4,7 +4,7 @@ import 'package:star_wars/films/~graphql/__generated__/films_tab.query.graphql.d
 import 'package:star_wars/utils.dart';
 
 class FilmsTab extends StatelessWidget {
-  const FilmsTab({Key? key}) : super(key: key);
+  const FilmsTab({super.key});
 
   @override
   Widget build(BuildContext context) {

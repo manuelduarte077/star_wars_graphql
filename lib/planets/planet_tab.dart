@@ -1,7 +1,7 @@
 import 'package:flutter/material.dart';
 
 class PlanetTab extends StatelessWidget {
-  const PlanetTab({Key? key}) : super(key: key);
+  const PlanetTab({super.key});
 
   @override
   Widget build(BuildContext context) {

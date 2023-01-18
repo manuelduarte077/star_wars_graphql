@@ -3,11 +3,14 @@ import 'package:star_wars/films/details_films_graphic.dart';
 import 'package:star_wars/films/~graphql/__generated__/films_tab.query.graphql.dart';
 
 class FilmsDetails extends StatelessWidget {
+  /// [FilmsDetails] is the constructor of the class
+  const FilmsDetails({
+    super.key,
+    required this.filmsDetail,
+  });
+
   /// [filmsDetail] is the data of the film
   final Query$AllFilms$allFilms$edges$node? filmsDetail;
-
-  /// [FilmsDetails] is the constructor of the class
-  const FilmsDetails({super.key, required this.filmsDetail});
 
   @override
   Widget build(BuildContext context) {
@@ -20,7 +23,6 @@ class FilmsDetails extends StatelessWidget {
         children: [
           const DetailFilmsGraphic(),
           Column(
-            mainAxisAlignment: MainAxisAlignment.start,
             children: [
               Center(
                 /// [filmsDetail] Titulo de la pelicula

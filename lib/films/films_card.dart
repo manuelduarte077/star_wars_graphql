@@ -3,9 +3,12 @@ import 'package:go_router/go_router.dart';
 import 'package:star_wars/films/~graphql/__generated__/films_tab.query.graphql.dart';
 
 class FilmsCard extends StatelessWidget {
-  final Query$AllFilms$allFilms$edges$node? filmsQuery;
+  const FilmsCard({
+    super.key,
+    required this.filmsQuery,
+  });
 
-  const FilmsCard({super.key, required this.filmsQuery});
+  final Query$AllFilms$allFilms$edges$node? filmsQuery;
 
   @override
   Widget build(BuildContext context) {
@@ -15,7 +18,7 @@ class FilmsCard extends StatelessWidget {
         child: Column(
           children: [
             ListTile(
-              /// Pasar argumentos a la siguiente ruta con [GoRouter.of(context).push]
+              /// Pasar argumentos  [GoRouter.of(context).push]
               onTap: () => GoRouter.of(context).push(
                 '/details',
                 extra: filmsQuery,
