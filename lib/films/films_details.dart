@@ -6,7 +6,7 @@ class FilmsDetails extends StatelessWidget {
   /// [FilmsDetails] is the constructor of the class
   const FilmsDetails({
     super.key,
-    required this.filmsDetail,
+    this.filmsDetail,
   });
 
   /// [filmsDetail] is the data of the film

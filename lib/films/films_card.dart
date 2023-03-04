@@ -5,7 +5,7 @@ import 'package:star_wars/films/~graphql/__generated__/films_tab.query.graphql.d
 class FilmsCard extends StatelessWidget {
   const FilmsCard({
     super.key,
-    required this.filmsQuery,
+    this.filmsQuery,
   });
 
   final Query$AllFilms$allFilms$edges$node? filmsQuery;

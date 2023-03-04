@@ -12,7 +12,8 @@ class MyApp extends StatelessWidget {
         GraphQLClient(
           cache: GraphQLCache(store: HiveStore()),
           link: HttpLink(
-              'https://swapi-graphql.netlify.app/.netlify/functions/index'),
+            'https://swapi-graphql.netlify.app/.netlify/functions/index',
+          ),
         ),
       ),
       child: MaterialApp.router(

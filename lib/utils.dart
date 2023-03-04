@@ -1,3 +1,4 @@
+import 'package:flutter/foundation.dart' show kDebugMode;
 import 'package:flutter/material.dart';
 import 'package:graphql_flutter/graphql_flutter.dart';
 
@@ -13,7 +14,9 @@ Widget? validateResult(QueryResult? result, {bool allowCache = true}) {
   if (result == null) return loading;
   if (result.hasException) {
     final exceptionStr = result.exception.toString();
-    print('>>> EXCEPTION: $exceptionStr');
+    if (kDebugMode) {
+      print('>>> EXCEPTION: $exceptionStr');
+    }
     return Text(exceptionStr);
   }
   if (result.isLoading && (!allowCache || result.parsedData == null)) {
