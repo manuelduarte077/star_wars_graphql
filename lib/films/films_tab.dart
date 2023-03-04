@@ -27,13 +27,14 @@ class FilmsTab extends StatelessWidget {
         }
 
         return RefreshIndicator(
-            child: ListView(
-              padding: const EdgeInsets.symmetric(horizontal: 16, vertical: 16),
-              children: cardList!,
-            ),
-            onRefresh: () async {
-              await refetch!();
-            });
+          child: ListView(
+            padding: const EdgeInsets.symmetric(horizontal: 16, vertical: 16),
+            children: cardList!,
+          ),
+          onRefresh: () async {
+            await refetch!();
+          },
+        );
       },
     );
   }
